@@ -6,6 +6,20 @@ const Login = () => {
         <div id="login-page">
             <div id="login-card">
                 <h2>Welcome to ChatBox! </h2>
+
+                <div 
+                className="login-button google"
+                >
+                    <GoogleOutlined /> Sign in with Google
+                </div>
+
+                <br></br>
+                <br></br>
+                <div 
+                className="login-button facebook"
+                >
+                    <FacebookOutlined /> Sign in with Facebook
+                </div>
             </div>
         </div>
     );

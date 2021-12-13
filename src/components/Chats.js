@@ -5,6 +5,14 @@ import { auth } from '../firebase';
 
 
 const Chats = () => {
+
+    const history = useHistory();
+
+    const handleLogout = async () => {
+        await auth.signOut();
+
+        history.push('/');
+    }
     return (
         <div className="chats-page">
             <div className="nav-bar">
@@ -12,7 +20,7 @@ const Chats = () => {
                     Chatbox
 
                 </div>
-                <div className="logo-tab">
+                <div onClick={handleLogout} className="logo-tab">
                     Logout 
                 </div>
             </div>

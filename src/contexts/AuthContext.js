@@ -26,5 +26,5 @@ export const AuthProvider = ({ childern }) => {
         <AuthContext.Provider value={value}>
             {!loading && children}
         </AuthContext.Provider>
-    )
+    ); 
 }

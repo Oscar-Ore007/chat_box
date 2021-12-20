@@ -11,12 +11,15 @@ const Chats = () => {
 
     const history = useHistory();
     const { user } = useAuth();
+    const [ loading, setLoading] = useState(true);
 
     const handleLogout = async () => {
         await auth.signOut();
 
         history.push('/');
     }
+
+    const getFile
 
     useEffect(() => {
         if(!user) {
@@ -31,6 +34,15 @@ const Chats = () => {
                 "user-secret": user.uid
             }
         })
+        .then(() => {
+            setLoading(false);
+        })
+            .catch(() => {
+                let formdata = new FormData();
+                formdata.append('email', user.email);
+                formdata.append('username',user.displayName );
+                formdata.append('secret', user.uid);
+            })
     }, [user,history]);
     return (
         <div className="chats-page">

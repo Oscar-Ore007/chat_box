@@ -26,8 +26,9 @@ const Chats = () => {
         }
         axios.get('https://api.chatengine.io/users/me', {
             headers: {
-                "project-id": "c9b25fb4-38b6-4d68-9b3d-c0f1980ae7e4"
-                "user-name": user.email, 
+                "project-id": "c9b25fb4-38b6-4d68-9b3d-c0f1980ae7e4",
+                "user-name": user.email,
+                "user-secret": user.uid
             }
         })
     }, [user,history]);

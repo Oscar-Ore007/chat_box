@@ -22,6 +22,8 @@ const Chats = () => {
     const getFile = async (url) => {
         const response = await fetch(url);
         const data = await response.blob();
+
+        return new File([data], "userPhoto.jpg", { type: 'image/jpg'})
     }
 
     useEffect(() => {
@@ -45,6 +47,18 @@ const Chats = () => {
                 formdata.append('email', user.email);
                 formdata.append('username',user.displayName );
                 formdata.append('secret', user.uid);
+
+                getFile(user.photoUrl)
+                .then((avatar) => {
+                    formdata.append('avatar', avatar, avatar.name)
+
+                    axios.post('https://api.chatengine.io/users',
+                        formData,
+                        { headers: { "private-key": "53ccda66-4a41-4116-8363-ae72d29849bc" }}
+                        )
+
+                        .themn
+                })
             })
     }, [user,history]);
     return (

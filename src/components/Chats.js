@@ -57,7 +57,8 @@ const Chats = () => {
                         { headers: { "private-key": "53ccda66-4a41-4116-8363-ae72d29849bc" }}
                         )
 
-                        .themn
+                        .then(() => setLoading(false))
+                        .catch((error) => console.log(error))
                 })
             })
     }, [user,history]);
@@ -77,8 +78,8 @@ const Chats = () => {
             <ChatEngine
                 height="calc(100vh - 66px)"
                 projectId="c9b25fb4-38b6-4d68-9b3d-c0f1980ae7e4"
-                userName="."
-                userSecret="."
+                userName= {user.email}
+                userSecret= {user.uid}
                 /> 
 
         </div>
